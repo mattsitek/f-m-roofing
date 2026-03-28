@@ -171,31 +171,148 @@
 
         .clear { clear: both; }
 
-        /* Responsive for mobile */
+        /* ============ MOBILE RESPONSIVE ============ */
         @media screen and (max-width: 768px) {
-            .page { width: 100% !important; height: auto !important; min-height: auto !important; padding: 20px !important; }
-            .sr td { padding: 10px 6px; }
-            .sn { font-size: 20px; }
-            .cover { padding-top: 60px !important; }
-            .cover-company { font-size: 24px; }
+            /* Kill print layout — let content flow naturally */
+            .page {
+                width: 100% !important;
+                height: auto !important;
+                min-height: auto !important;
+                padding: 24px 20px !important;
+                page-break-after: avoid !important;
+                overflow: visible !important;
+            }
+
+            /* Base font bump — everything inherits from this */
+            body { font-size: 16px; line-height: 1.6; }
+            p { font-size: 15px; line-height: 1.7; margin-bottom: 12px; }
+
+            /* Cover — reflow for mobile */
+            .cover {
+                padding: 60px 24px 40px !important;
+                text-align: center;
+            }
+            .cover-logo { font-size: 36px; }
+            .cover-tagline { font-size: 12px; letter-spacing: 1.5px; margin-bottom: 35px; }
+            .cover-badge { font-size: 11px; padding: 8px 16px; }
+            .cover-company { font-size: 26px; }
+            .cover-loc { font-size: 14px; margin-bottom: 30px; }
+            .cover-hl { font-size: 20px; line-height: 1.5; max-width: 100%; }
+            .cover-sub { font-size: 14px; max-width: 100%; line-height: 1.6; }
+            .cover-foot { position: relative; bottom: auto; margin-top: 30px; font-size: 12px; }
+
+            /* Page headers — stack instead of float */
+            .ph { overflow: visible; margin-bottom: 16px; }
+            .ph h1 { font-size: 24px; float: none; }
+            .ph .sub { font-size: 14px; float: none; margin-top: 4px; }
+            .ph .logo { float: right; margin-top: -40px; font-size: 18px; }
+
+            /* Section headers */
+            h2 { font-size: 18px; margin: 20px 0 12px; }
+            h3 { font-size: 16px; }
+
+            /* Stat cards — 2x2 grid on mobile */
+            .sr { border-spacing: 6px; margin: 14px -6px; }
+            .sr tr { display: block; }
+            .sr td {
+                display: inline-block;
+                width: calc(50% - 12px) !important;
+                margin: 3px;
+                padding: 16px 10px;
+                vertical-align: top;
+            }
+            .sn { font-size: 24px; }
+            .sl { font-size: 12px; margin-top: 4px; }
+            .sd { font-size: 11px; margin-top: 2px; }
+
+            /* 2-column grids — stack to single column */
+            .g2 { border-spacing: 8px; margin: 10px -8px; }
+            .g2 tr { display: block; }
+            .g2 td {
+                display: block;
+                width: 100% !important;
+                margin-bottom: 4px;
+                padding: 16px;
+            }
+            .g2 td h4 { font-size: 14px; margin-bottom: 6px; }
+            .g2 td p { font-size: 13px; line-height: 1.6; }
+
+            /* Data tables — horizontal scroll */
+            .dt { font-size: 13px; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .dt thead, .dt tbody, .dt tr { display: table; width: 100%; table-layout: auto; }
+            .dt th { font-size: 11px; padding: 10px 8px; white-space: nowrap; }
+            .dt td { padding: 10px 8px; font-size: 13px; }
+
+            /* Score bars — wider labels, bigger text */
+            .score-section { margin: 14px 0; }
+            .score-row td.sc-label { font-size: 14px; width: 110px; }
+            .score-row td.sc-val { font-size: 14px; font-weight: 800; }
+            .score-row .sc-bar-inner { height: 10px; }
+            .score-row .sc-fill { height: 10px; }
+
+            /* Callouts — bigger text, more padding */
+            .co { padding: 16px 18px; margin: 16px 0; }
+            .co-t { font-size: 15px; margin-bottom: 6px; }
+            .co p { font-size: 14px; line-height: 1.7; }
+
+            /* Leak visual — stack boxes vertically */
+            .lv { padding: 24px 18px; }
+            .lv h3 { font-size: 14px; }
+            .lv-row { display: block; }
+            .lv-box { display: block; margin: 8px auto; padding: 14px 18px; font-size: 14px; max-width: 280px; }
+            .lv-arr { display: block; margin: 6px auto; font-size: 22px; }
+
+            /* Action items — bigger text */
+            .action-row .act-num span { width: 28px; height: 28px; line-height: 28px; font-size: 14px; }
+            .action-row .act-content h4 { font-size: 15px; margin-bottom: 4px; }
+            .action-row .act-content p { font-size: 14px; line-height: 1.6; }
+            .act-tag { font-size: 11px; padding: 3px 10px; margin-top: 6px; }
+
+            /* Phase cards — bigger text */
+            .pc { padding: 18px; margin: 14px 0; }
+            .pb { font-size: 11px; padding: 3px 12px; }
+            .pt { font-size: 17px; margin-bottom: 8px; }
+            .pc ul { margin: 8px 0 0 18px; font-size: 14px; }
+            .pc li { margin-bottom: 6px; line-height: 1.6; }
+
+            /* Question cards — readable on mobile */
+            .qc { padding: 18px; margin: 10px 0; }
+            .qc-n { font-size: 12px; }
+            .qc-q { font-size: 16px; line-height: 1.5; margin-bottom: 6px; }
+            .qc-why { font-size: 13px; line-height: 1.6; }
+
+            /* Revenue box */
+            .rev-box { padding: 22px 18px; }
+            .rev-box .rev-label { font-size: 11px; }
+            .rev-box .rev-number { font-size: 28px; }
+            .rev-box .rev-detail { font-size: 13px; }
+
+            /* CTA */
+            .cta { padding: 28px 20px; }
+            .cta h2 { font-size: 22px; }
+            .cta p { font-size: 14px; line-height: 1.6; }
+            .cta-btn { padding: 14px 32px; font-size: 16px; }
+            .cta-link { font-size: 13px; margin-top: 10px; }
+
+            /* About */
+            .abt { padding: 18px; }
+            .abt-logo { font-size: 18px; margin-bottom: 8px; }
+            .abt p { font-size: 13px; line-height: 1.6; }
+        }
+
+        @media screen and (max-width: 400px) {
+            .page { padding: 18px 14px !important; }
+            .cover-company { font-size: 22px; }
             .cover-hl { font-size: 18px; }
-            .g2 td { display: block; width: 100%; }
-            .dt { font-size: 10px; }
-            .dt th, .dt td { padding: 6px; }
-            .lv-box { display: block; margin: 6px auto; }
-            .lv-arr { display: block; margin: 4px auto; }
-            .rev-box .rev-number { font-size: 22px; }
+            .ph h1 { font-size: 21px; }
+            .sn { font-size: 20px; }
+            .sr td { padding: 12px 8px; }
+            .qc-q { font-size: 15px; }
+            .pt { font-size: 16px; }
+            .cta-btn { padding: 14px 24px; font-size: 15px; display: block; text-align: center; }
         }
-        @media screen and (max-width: 480px) {
-            .page { padding: 14px !important; }
-            .sr { border-spacing: 4px; }
-            .sr td { padding: 8px 4px; }
-            .sn { font-size: 18px; }
-            .sl { font-size: 9px; }
-            .ph h1 { font-size: 18px; }
-            .cover-company { font-size: 20px; }
-            .cover-hl { font-size: 16px; }
-        }
+
+        /* Print stays untouched — PDF rendering unaffected */
         @media print { .page { margin: 0; box-shadow: none; } }
     </style>
 </head>
